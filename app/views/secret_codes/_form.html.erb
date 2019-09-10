@@ -1,0 +1,8 @@
+<%= form_for(:secret_code, url: secret_codes_path,method: :post) do |f| %>
+	<div class="col-md-6">
+		<%= f.select(:code, options_for_select([1,10,20,50,100], :selected => 10),{}, class: "form-control") %>
+	</div>
+	<div class="col-md-4">
+		<%=f.submit "Create Secret Code",class: "btn btn-primary" %>
+	</div>
+<% end %>

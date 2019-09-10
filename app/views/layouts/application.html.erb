@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DemoTest</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <% if current_user.present? %>
+    <div class="container">
+      <a class=""><%= current_user.email%> - <%= current_user.secret_code%> --- <%= link_to('Logout', destroy_user_session_path, method: :delete) %></a>
+    </div>
+    <%end%>
+    <div class="container">
+      <%= render partial: "layouts/alert_messages" %>
+      <%= yield %>
+    </div>
+  </div>
+</div>
+</body>
+</html>
